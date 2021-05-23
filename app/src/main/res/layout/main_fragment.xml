@@ -8,13 +8,45 @@
     tools:context=".ui.main.MainFragment">
 
     <TextView
-        android:id="@+id/message"
+        android:id="@+id/title3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MainFragment"
+        android:text="Title of the article"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_creator="1"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_creator="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024"
+        app:layout_editor_absoluteX="16dp"
+        app:layout_editor_absoluteY="140dp"
+        tools:layout_constraintLeft_creator="0"
+        tools:layout_constraintTop_creator="0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="127dp"
+        android:layout_height="116dp"
+        android:src="@drawable/lottery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04000002" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView"
+        android:layout_width="340dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="36dp"
+        android:ellipsize="end"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc volutpat sit amet sem vitae tristique. Nulla at ex sit amet tellus iaculis euismod a sit amet lorem. Morbi in erat quis tortor vulputate posuere. Maecenas neque massa, tempor non mauris sed, porttitor consequat lacus. Curabitur vitae tristique lectus. Integer metus diam, eleifend et efficitur non, fermentum id nulla. Curabitur blandit augue et justo porta sagittis. In dignissim non nunc eget dictum. Praesent non euismod mauris. Vivamus tempor magna id gravida dapibus. Aliquam porta sem et nunc iaculis commodo. Cras nibh elit, convallis ut purus at, commodo iaculis purus. Praesent lacinia leo sit amet elit malesuada, a mollis metus hendrerit. In hac habitasse platea dictumst."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
