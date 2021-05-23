@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.oliva.newsreader.ui.main.MainFragment;
+import com.oliva.newsreader.fragments.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
 

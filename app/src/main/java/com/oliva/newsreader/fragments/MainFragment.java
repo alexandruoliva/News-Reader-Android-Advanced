@@ -1,4 +1,4 @@
-package com.oliva.newsreader.ui.main;
+package com.oliva.newsreader.fragments;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.oliva.newsreader.R;
+import com.oliva.newsreader.ui.main.MainViewModel;
 
 public class MainFragment extends Fragment {
 
