@@ -1,61 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-    <variable
-        name="itemViewModel"
-        type="com.oliva.newsreader.mappers.ArticleItemViewModel" />
+
+        <variable
+            name="handler"
+            type="com.oliva.newsreader.listener.ArticleItemHandler" />
+
+        <variable
+            name="itemViewModel"
+            type="com.oliva.newsreader.mappers.ArticleItemViewModel" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/title3"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_creator="1"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_creator="0"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024"
-        app:layout_editor_absoluteX="16dp"
-        app:layout_editor_absoluteY="140dp"
-        tools:layout_constraintLeft_creator="0"
-        tools:layout_constraintTop_creator="0"
-        android:text="@{itemViewModel.titleName}"/>
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="127dp"
-        android:layout_height="116dp"
-        android:src="@drawable/lottery"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04000002"
-        android:contentDescription="TODO"></ImageView>
-<!--        android:text="@{itemViewModel.imageName}"/>-->
+        <TextView
+            android:id="@+id/title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{itemViewModel.titleName}"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_creator="1"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_creator="0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.100000024"
+            app:layout_editor_absoluteX="16dp"
+            app:layout_editor_absoluteY="140dp"
+            tools:layout_constraintLeft_creator="0"
+            tools:layout_constraintTop_creator="0" />
 
-    <CheckedTextView
-        android:id="@+id/checkedTextView"
-        android:layout_width="340dp"
-        android:layout_height="270dp"
-        android:layout_marginTop="36dp"
-        android:ellipsize="end"
-        android:text="@{itemViewModel.articleName}"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="127dp"
+            android:layout_height="116dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/lottery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.04000002"></ImageView>
+        <!--        android:text="@{itemViewModel.imageName}"/>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <CheckedTextView
+            android:id="@+id/checkedTextView"
+            android:layout_width="340dp"
+            android:layout_height="270dp"
+            android:layout_marginTop="36dp"
+            android:ellipsize="end"
+            android:text="@{itemViewModel.articleName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

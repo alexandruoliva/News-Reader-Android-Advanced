@@ -10,9 +10,9 @@ public class NewsListViewModel {
     @Nullable
     public Integer id;
     @NonNull
-    ObservableList<ArticleItemViewModel> newsList = new ObservableArrayList();
+    public final ObservableList<ArticleItemViewModel> items;
 
     public NewsListViewModel(@NonNull ObservableList<ArticleItemViewModel> newsList) {
-        this.newsList = newsList;
+        this.items = new ObservableArrayList<>();
     }
 }

@@ -21,6 +21,9 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="192dp"
         tools:layout_editor_absoluteY="287dp"
+        app:items="@{itemListViewModel.items}"
+        app:todoHandler="@{itemListViewModel}"
+        tools:listitem="@layout/single_item_fragment"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
