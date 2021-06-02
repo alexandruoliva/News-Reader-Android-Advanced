@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableList;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.ViewModel;
 
-public class NewsListViewModel {
+import com.oliva.newsreader.listener.ArticleItemHandler;
+
+public class NewsListViewModel extends ViewModel implements LifecycleObserver, ArticleItemHandler {
 
     @Nullable
     public Integer id;
@@ -14,5 +18,10 @@ public class NewsListViewModel {
 
     public NewsListViewModel(@NonNull ObservableList<ArticleItemViewModel> newsList) {
         this.items = new ObservableArrayList<>();
+    }
+
+    @Override
+    public void onItemSelected(ArticleItemViewModel item) {
+
     }
 }

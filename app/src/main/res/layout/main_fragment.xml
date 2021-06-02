@@ -9,7 +9,9 @@
         <variable
             name="itemListViewModel"
             type="com.oliva.newsreader.mappers.NewsListViewModel" />
+
     </data>
+
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
@@ -22,8 +24,8 @@
         tools:layout_editor_absoluteX="192dp"
         tools:layout_editor_absoluteY="287dp"
         app:items="@{itemListViewModel.items}"
-        app:todoHandler="@{itemListViewModel}"
-        tools:listitem="@layout/single_item_fragment"
+        app:handler="@{itemListViewModel}"
+        tools:listitem="@layout/article_item"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

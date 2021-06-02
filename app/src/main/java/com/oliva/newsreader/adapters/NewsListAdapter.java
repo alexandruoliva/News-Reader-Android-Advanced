@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.oliva.newsreader.databinding.SingleItemFragmentBinding;
+import com.oliva.newsreader.databinding.ArticleItemBinding;
 import com.oliva.newsreader.listener.ArticleItemHandler;
 import com.oliva.newsreader.mappers.ArticleItemViewModel;
 
@@ -19,21 +19,14 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.Articl
     private List<ArticleItemViewModel> articleItemViewModelList;
     private ArticleItemHandler handler;
 
-    public NewsListAdapter(){
-        this.articleItemViewModelList = new ArrayList<>();}
-
-     public class ArticleViewHolder extends RecyclerView.ViewHolder {
-        final SingleItemFragmentBinding binding;
-
-        public ArticleViewHolder(SingleItemFragmentBinding binding) {
-            super(binding.getRoot());
-            this.binding = binding;
-        }
+    public NewsListAdapter(ArticleItemHandler handler) {
+        this.articleItemViewModelList = new ArrayList<>();
+        this.handler = handler;
     }
 
     @Override
     public ArticleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        SingleItemFragmentBinding binder = SingleItemFragmentBinding.inflate(LayoutInflater.from(parent.getContext()),
+        ArticleItemBinding binder = ArticleItemBinding.inflate(LayoutInflater.from(parent.getContext()),
                 parent, false);
 
         return new ArticleViewHolder(binder);
@@ -51,10 +44,19 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.Articl
         return articleItemViewModelList.size();
     }
 
-    public void setItems(List<ArticleItemViewModel> items, ArticleItemHandler handler) {
-        this.handler = handler;
+    public void setItems(List<ArticleItemViewModel> items/*, ArticleItemHandler handler*/) {
+//        this.handler = handler;
         this.articleItemViewModelList = items;
         notifyDataSetChanged();
+    }
+
+    public class ArticleViewHolder extends RecyclerView.ViewHolder {
+        final ArticleItemBinding binding;
+
+        public ArticleViewHolder(ArticleItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
     }
 
 }
