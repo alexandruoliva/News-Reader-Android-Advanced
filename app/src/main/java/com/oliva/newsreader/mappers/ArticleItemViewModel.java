@@ -7,13 +7,12 @@ public class ArticleItemViewModel {
 
     @Nullable
     public Integer id;
-    public final ObservableField<String> imageName;
-    public final ObservableField<String> titleName;
-    public final ObservableField<String> articleName;
+    public final String imageUrl;
+    public final String titleName;
+    public final String articleName;
 
-
-    public ArticleItemViewModel(ObservableField<String> imageName, ObservableField<String> titleName, ObservableField<String> articleName) {
-        this.imageName = imageName;
+    public ArticleItemViewModel(String imageUrl, String titleName, String articleName) {
+        this.imageUrl = imageUrl;
         this.titleName = titleName;
         this.articleName = articleName;
     }
