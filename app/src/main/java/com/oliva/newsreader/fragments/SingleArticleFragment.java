@@ -22,6 +22,7 @@ public class SingleArticleFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         newsListViewModel = new ViewModelProvider(this).get(NewsListViewModel.class);
+        newsListViewModel.fetchNewsList();
         getLifecycle().addObserver(newsListViewModel);
     }
 
