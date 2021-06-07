@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
-        ft.replace(R.id.main_fragment, new MainFragment());
+        ft.replace(R.id.main, new MainFragment());
         ft.commit();
     }
 }

@@ -7,19 +7,25 @@
     android:layout_height="match_parent"
     tools:context="com.oliva.newsreader.MainActivity">
 
+    <!--    <FrameLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="?android:attr/actionBarSize"-->
+    <!--        >-->
+
+    <!--        <fragment-->
+    <!--            android:id="@+id/main_fragment"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:tag="MainFragment"-->
+    <!--            android:name="com.oliva.newsreader.fragments.MainFragment"/>-->
+    <!--    </FrameLayout>-->
+
     <FrameLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?android:attr/actionBarSize"
-        android:id="@+id/main_fragment"
-        >
-
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:tag="MainFragment"
-            android:name="com.oliva.newsreader.fragments.MainFragment"/>
-    </FrameLayout>
+        tools:context="com.oliva.newsreader.fragments.MainFragment"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
