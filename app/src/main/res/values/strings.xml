@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">News Reader</string>
+    <string name="app_name">Repo With Remote</string>
+    <string name="api_attribution">Powered by NewsAPI.org</string>
+    <string name="refresh">Refresh</string>
+    <string name="error_title">Oops</string>
+    <string name="network_error">Something went wrong, are you connected? debug: %s</string>
+    <string name="results">Received %d results</string>
+    <string name="ok">Ok</string>
 </resources>
