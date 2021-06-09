@@ -5,9 +5,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-import com.oliva.newsreader.fragments.MainFragment;
+import com.oliva.newsreader.fragments.NewsListFragment;
+
+import dependencyInjection.RepoModule;
 
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
-        ft.replace(R.id.main, new MainFragment());
+        ft.replace(R.id.main, new NewsListFragment());
         ft.commit();
     }
+
 }

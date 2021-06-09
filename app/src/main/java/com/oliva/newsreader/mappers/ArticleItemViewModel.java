@@ -1,7 +1,7 @@
 package com.oliva.newsreader.mappers;
 
 import androidx.annotation.Nullable;
-import androidx.databinding.ObservableField;
+
 
 public class ArticleItemViewModel {
 

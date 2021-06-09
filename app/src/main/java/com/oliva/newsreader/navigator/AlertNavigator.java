@@ -1,4 +1,4 @@
-package navigator;
+package com.oliva.newsreader.navigator;
 
 import android.content.Context;
 

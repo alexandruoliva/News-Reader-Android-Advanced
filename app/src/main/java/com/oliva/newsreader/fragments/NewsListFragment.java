@@ -8,21 +8,24 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.oliva.newsreader.databinding.MainFragmentBinding;
 import com.oliva.newsreader.mappers.NewsListViewModel;
+import com.oliva.newsreader.mappers.ViewModelFactory;
 
-public class SingleArticleFragment extends Fragment {
+public class NewsListFragment extends Fragment {
 
     private NewsListViewModel newsListViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ViewModelFactory factory = new ViewModelFactory(requireActivity().getApplication());
 
-        newsListViewModel = new ViewModelProvider(this).get(NewsListViewModel.class);
-        newsListViewModel.fetchNewsList();
+
+        newsListViewModel = ViewModelProviders.of(requireActivity(), factory).get(NewsListViewModel.class);
+//        newsListViewModel.fetchNewsList();
         getLifecycle().addObserver(newsListViewModel);
     }
 
