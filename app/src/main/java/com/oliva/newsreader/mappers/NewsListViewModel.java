@@ -39,7 +39,7 @@ public class NewsListViewModel extends AndroidViewModel implements LifecycleObse
     @Nullable
     public Integer id;
     @NonNull
-    public final ObservableList<ArticleItemViewModel> items;
+    public ObservableList<ArticleItemViewModel> items;
 
     public NewsListViewModel(@NonNull Application application, NewsRepository repo) {
         super(application);
@@ -61,23 +61,13 @@ public class NewsListViewModel extends AndroidViewModel implements LifecycleObse
         super.onCleared();
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    public void fetchNewsList(){
-        Log.d(TAG,"fetchNewsList()");
-        if(items.isEmpty()){
-            items.add(new ArticleItemViewModel("https://imgur.com/gallery/dDXwhHY", "title 1", "description"));
-            items.add(new ArticleItemViewModel("https://imgur.com/gallery/dDXwhHY", "title 1", "description"));
-            items.add(new ArticleItemViewModel("https://imgur.com/gallery/dDXwhHY", "title 1", "description"));
-            items.add(new ArticleItemViewModel("https://imgur.com/gallery/dDXwhHY", "title 1", "description"));
-            items.add(new ArticleItemViewModel("https://imgur.com/gallery/dDXwhHY", "title 1", "description"));
-            items.add(new ArticleItemViewModel("https://imgur.com/gallery/dDXwhHY", "title 1", "description"));
-        }
-    }
 
     @SuppressLint("CheckResult")
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void refreshData() {
         isLoading.set(true);
         repo.getNewsArticles()
+                .map(new ArticlesToVMListMapper())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         this::onNewsArticlesReceived,
@@ -85,9 +75,10 @@ public class NewsListViewModel extends AndroidViewModel implements LifecycleObse
                 );
     }
 
-    private void onNewsArticlesReceived(@NonNull List<Article> articles) {
-        isLoading.set(false);
-        resultText.set(getApplication().getString(R.string.results, articles.size()));
+    private void onNewsArticlesReceived(@NonNull List<ArticleItemViewModel> articles) {
+//        isLoading.set(false);
+//        resultText.set(getApplication().getString(R.string.results, articles.size()));
+        this.items.addAll(articles);
     }
 
     private void onNewsArticlesError(Throwable throwable) {

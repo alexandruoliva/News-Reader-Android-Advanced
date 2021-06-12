@@ -23,6 +23,6 @@ public class RecyclerBindings {
             recyclerView.setAdapter(readerAdapter);
         }
 
-        readerAdapter.setItems(articles);
+        readerAdapter.setItems(articles, handler);
     }
 }

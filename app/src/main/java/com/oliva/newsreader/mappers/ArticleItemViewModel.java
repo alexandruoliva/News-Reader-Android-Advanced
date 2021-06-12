@@ -5,15 +5,13 @@ import androidx.annotation.Nullable;
 
 public class ArticleItemViewModel {
 
-    @Nullable
-    public Integer id;
     public final String imageUrl;
     public final String titleName;
-    public final String articleName;
+    public final String content;
 
-    public ArticleItemViewModel(String imageUrl, String titleName, String articleName) {
+    public ArticleItemViewModel(String imageUrl, String titleName, String content) {
         this.imageUrl = imageUrl;
         this.titleName = titleName;
-        this.articleName = articleName;
+        this.content = content;
     }
 }

@@ -44,8 +44,8 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.Articl
         return articleItemViewModelList.size();
     }
 
-    public void setItems(List<ArticleItemViewModel> items/*, ArticleItemHandler handler*/) {
-//        this.handler = handler;
+    public void setItems(List<ArticleItemViewModel> items, ArticleItemHandler handler) {
+        this.handler = handler;
         this.articleItemViewModelList = items;
         notifyDataSetChanged();
     }
