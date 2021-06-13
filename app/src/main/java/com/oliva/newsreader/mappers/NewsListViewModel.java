@@ -2,7 +2,6 @@ package com.oliva.newsreader.mappers;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,10 +13,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
-import androidx.lifecycle.ViewModel;
 
-import com.oliva.data.entities.Article;
-import com.oliva.newsreader.R;
 import com.oliva.newsreader.listener.ArticleItemHandler;
 
 import java.util.List;

@@ -1,9 +1,9 @@
 package mapper;
 
 
-import com.oliva.data.entities.Article;
-import com.oliva.data.entities.ArticleDto;
-import com.oliva.data.entities.ArticleListDto;
+import com.oliva.data.model.Article;
+import com.oliva.data.model.ArticleDto;
+import com.oliva.data.model.ArticleListDto;
 
 import java.util.ArrayList;
 import java.util.List;

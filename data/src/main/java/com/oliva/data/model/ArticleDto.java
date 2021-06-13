@@ -1,4 +1,4 @@
-package com.oliva.data.entities;
+package com.oliva.data.model;
 
 /**
  * Created by mihai.mecea on 03.May.2020

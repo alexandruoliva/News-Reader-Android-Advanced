@@ -1,6 +1,6 @@
 package repository;
 
-import com.oliva.data.entities.Article;
+import com.oliva.data.model.Article;
 
 import java.util.List;
 

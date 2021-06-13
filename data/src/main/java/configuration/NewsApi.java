@@ -1,6 +1,6 @@
 package configuration;
 
-import com.oliva.data.entities.ArticleListDto;
+import com.oliva.data.model.ArticleListDto;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;

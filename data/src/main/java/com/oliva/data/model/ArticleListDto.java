@@ -1,4 +1,4 @@
-package com.oliva.data.entities;
+package com.oliva.data.model;
 
 import java.util.List;
 

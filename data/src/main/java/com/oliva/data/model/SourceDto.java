@@ -1,4 +1,4 @@
-package com.oliva.data.entities;
+package com.oliva.data.model;
 
 public class SourceDto {
     public final String name;

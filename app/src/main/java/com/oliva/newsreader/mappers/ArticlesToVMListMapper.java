@@ -1,6 +1,6 @@
 package com.oliva.newsreader.mappers;
 
-import com.oliva.data.entities.Article;
+import com.oliva.data.model.Article;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.oliva.data.entities;
+package com.oliva.data.model;
 
 import io.reactivex.annotations.NonNull;
 public class Article {
