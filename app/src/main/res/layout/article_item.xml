@@ -26,7 +26,7 @@
             android:layout_gravity="center_vertical"
             android:paddingHorizontal="8dp"
             android:paddingVertical="4dp"
-            android:text="@{itemViewModel.titleName}"
+            android:text="@{itemViewModel.title}"
             android:textStyle="bold"
             tools:text="Title" />
 

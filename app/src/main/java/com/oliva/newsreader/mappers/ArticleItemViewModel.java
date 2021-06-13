@@ -1,17 +1,15 @@
 package com.oliva.newsreader.mappers;
 
-import androidx.annotation.Nullable;
-
 
 public class ArticleItemViewModel {
 
-    public final String imageUrl;
-    public final String titleName;
+    public final String title;
     public final String content;
+    public final String imageUrl;
 
-    public ArticleItemViewModel(String imageUrl, String titleName, String content) {
-        this.imageUrl = imageUrl;
-        this.titleName = titleName;
+    public ArticleItemViewModel(String title, String content, String imageUrl) {
+        this.title = title;
         this.content = content;
+        this.imageUrl = imageUrl;
     }
 }

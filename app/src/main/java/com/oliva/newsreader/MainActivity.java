@@ -16,11 +16,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, NewsListFragment.newInstance())
+                    .commitNow();
+        }
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-        ft.replace(R.id.main, new NewsListFragment());
-        ft.commit();
     }
-
 }
