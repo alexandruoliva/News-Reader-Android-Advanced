@@ -3,6 +3,10 @@ package dependencyInjection;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.room.Room;
+
+import com.oliva.data.model.store.local.NewsDatabase;
+
 import configuration.NewsRemoteSource;
 import io.reactivex.annotations.NonNull;
 import remote.HttpClientFactory;
@@ -16,6 +20,8 @@ public class RepoModule {
     @NonNull
     private HttpClientFactory httpClientFactory;
 
+    private volatile NewsDatabase database;
+
     public RepoModule(@NonNull Application application) {
         this.context = application.getApplicationContext();
         this.httpClientFactory = new HttpClientFactory();
@@ -27,5 +33,18 @@ public class RepoModule {
 
     private NewsRemoteSource provideNewsRemoteSource() {
         return new NewsRemoteSource(httpClientFactory.getNewsApi());
+    }
+
+    NewsDatabase getInstance() {
+        if (database == null) {
+            synchronized (NewsDatabase.class) {
+                if (database == null) {
+                    database = Room.databaseBuilder(context.getApplicationContext(),
+                            NewsDatabase.class, "News.db")
+                            .build();
+                }
+            }
+        }
+        return database;
     }
 }

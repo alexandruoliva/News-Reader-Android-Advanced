@@ -1,4 +1,4 @@
-package com.oliva.data.model.entities;
+package com.oliva.data.model.entities.local;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
