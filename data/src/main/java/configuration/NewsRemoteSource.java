@@ -1,10 +1,14 @@
 package configuration;
 
+import com.oliva.data.model.Article;
 import com.oliva.data.model.ArticleListDto;
+
+import java.util.List;
 
 import io.reactivex.Single;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.schedulers.Schedulers;
+import mapper.NewsDtoToNewsMapper;
 
 public class NewsRemoteSource {
 
@@ -18,8 +22,8 @@ public class NewsRemoteSource {
         this.newsApi = newsApi;
     }
 
-    public Single<ArticleListDto> getNewsArticles() {
+    public Single<List<Article>> getNewsArticles() {
         return newsApi.getNewsArticles(API_KEY, EN_LANGUAGE_FILTER)
-                .subscribeOn(Schedulers.io());
+                .subscribeOn(Schedulers.io()).map(new NewsDtoToNewsMapper());
     }
 }

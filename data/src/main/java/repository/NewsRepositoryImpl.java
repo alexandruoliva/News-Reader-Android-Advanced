@@ -13,59 +13,48 @@ import io.reactivex.Scheduler;
 import io.reactivex.Single;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.schedulers.Schedulers;
+import mapper.ArticleToNewsEntityMapper;
 import mapper.NewsDtoToNewsMapper;
 
 public class NewsRepositoryImpl implements NewsRepository {
 
     private final NewsRemoteSource remoteSource;
 
-    private NewsLocalStore newsLocalStore;
+    private NewsLocalStore localSource;
 
-    public NewsRepositoryImpl(NewsRemoteSource remoteSource, NewsLocalStore newsLocalStore) {
+    public NewsRepositoryImpl(NewsRemoteSource remoteSource, NewsLocalStore localSource) {
         this.remoteSource = remoteSource;
-        this.newsLocalStore = newsLocalStore;
+        this.localSource = localSource;
     }
 
-    public NewsRepositoryImpl(NewsRemoteSource remoteSource) {
-        this.remoteSource = remoteSource;
-    }
-
-    @NonNull
     @Override
+    @NonNull
     public Single<List<Article>> getNewsArticles() {
         return remoteSource.getNewsArticles()
-                .map(new NewsDtoToNewsMapper());
+                .doOnSuccess(localSource::saveArticles)
+                .onErrorResumeNext(localSource.getArticlesList());
     }
-
-//    @Override
-//    @NonNull
-//    public Single<List<Article>> getNewsArticles() {
-//        return remoteSource.getNewsArticles()
-//                .doOnSuccess(newsLocalStore::saveArticle)
-//                .onErrorResumeNext(remoteSource.getNewsArticles())
-//                .map(new NewsDtoToNewsMapper());
-//    }
 
 
 
     @NonNull
     @Override
     public Single<ArticleEntity> getArticleById(int articleId) {
-        return newsLocalStore.getArticleById(articleId)
+        return localSource.getArticleById(articleId)
                 .subscribeOn(Schedulers.io());
     }
 
     @NonNull
     @Override
     public Completable saveArticle(ArticleEntity articleEntity) {
-        return newsLocalStore.saveArticle(articleEntity)
+        return localSource.saveArticle(articleEntity)
                 .subscribeOn(Schedulers.io());
     }
 
     @NonNull
     @Override
     public Completable deleteArticle(int articleId) {
-        return newsLocalStore.deleteArticle(articleId)
+        return localSource.deleteArticle(articleId)
                 .subscribeOn(Schedulers.io());
     }
 

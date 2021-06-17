@@ -5,6 +5,7 @@ import android.content.Context;
 
 import androidx.room.Room;
 
+import com.oliva.data.model.entities.local.NewsLocalStore;
 import com.oliva.data.model.store.local.NewsDatabase;
 
 import configuration.NewsRemoteSource;
@@ -28,11 +29,17 @@ public class RepoModule {
     }
 
     public NewsRepository provideNewsRepository() {
-        return new NewsRepositoryImpl(provideNewsRemoteSource());
+        return new NewsRepositoryImpl(provideNewsRemoteSource(), provideNewLocalSource());
     }
 
     private NewsRemoteSource provideNewsRemoteSource() {
+
         return new NewsRemoteSource(httpClientFactory.getNewsApi());
+    }
+
+    private NewsLocalStore provideNewLocalSource(){
+        NewsDatabase database = getInstance();
+        return new NewsLocalStore(database.articlesDao());
     }
 
     NewsDatabase getInstance() {

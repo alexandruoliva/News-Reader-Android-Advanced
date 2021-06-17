@@ -15,7 +15,7 @@ import io.reactivex.Single;
 public interface ArticlesDao {
 
     @Query("SELECT * FROM articles")
-    Flowable<List<ArticleEntity>> queryArticles();
+    Single<List<ArticleEntity>> queryArticles();
 
     @Query("SELECT * FROM articles where id= :id")
     Single<ArticleEntity> queryArticleItem(int id);
