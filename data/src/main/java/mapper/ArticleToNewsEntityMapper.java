@@ -14,6 +14,7 @@ import io.reactivex.functions.Function;
 public class ArticleToNewsEntityMapper implements Function<List<Article>, List<ArticleEntity>> {
 
     private static final String DEFAULT_TITLE = "Default title";
+    private static final String DEFAULT_DESCRIPTION = "Default description";
     private static final String DEFAULT_CONTENT = "Default content";
     private static final String DEFAULT_IMAGE_URL = "www.imageurl.com";
 
@@ -26,8 +27,9 @@ public class ArticleToNewsEntityMapper implements Function<List<Article>, List<A
             ArticleEntity articleEntity = new ArticleEntity();
 
             articleEntity.setContent(!currentArticle.content.equals("") ? currentArticle.content : DEFAULT_CONTENT);
-            articleEntity.setContent(!currentArticle.imageUrl.equals("") ? currentArticle.imageUrl : DEFAULT_IMAGE_URL);
-            articleEntity.setContent(!currentArticle.title.equals("") ? currentArticle.title : DEFAULT_TITLE);
+            articleEntity.setImageUrl(!currentArticle.imageUrl.equals("") ? currentArticle.imageUrl : DEFAULT_IMAGE_URL);
+            articleEntity.setTitle(!currentArticle.title.equals("") ? currentArticle.title : DEFAULT_TITLE);
+            articleEntity.setDescription(!currentArticle.description.equals("") ? currentArticle.description : DEFAULT_DESCRIPTION);
 
             articleEntityList.add(articleEntity);
         }

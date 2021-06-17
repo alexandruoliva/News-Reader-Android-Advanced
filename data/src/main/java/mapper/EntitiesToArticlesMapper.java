@@ -15,6 +15,7 @@ public class EntitiesToArticlesMapper implements Function<List<ArticleEntity>, L
 
     private static final String DEFAULT_TITLE = "Default title";
     private static final String DEFAULT_CONTENT = "Default content";
+    private static final String DEFAULT_DESCRIPTION = "Default description";
     private static final String DEFAULT_IMAGE_URL = "www.imageurl.com";
 
 
@@ -25,10 +26,11 @@ public class EntitiesToArticlesMapper implements Function<List<ArticleEntity>, L
         for (ArticleEntity articleEntity : articleEntityList) {
             Article article = new Article();
 
-            article.setDescription(articleEntity.getDescription());
-            article.setContent(articleEntity.getContent());
-            article.setImageUrl(articleEntity.getImageUrl());
-            article.setTitle(articleEntity.getTitle());
+            article.setDescription(!articleEntity.getDescription().equals("") ? articleEntity.description : DEFAULT_DESCRIPTION);
+            article.setContent(articleEntity.getContent().equals("") ? articleEntity.content : DEFAULT_CONTENT);
+            article.setImageUrl(articleEntity.getImageUrl().equals("") ? articleEntity.imageUrl : DEFAULT_IMAGE_URL);
+            article.setTitle(articleEntity.getTitle().equals("") ? articleEntity.title: DEFAULT_TITLE);
+
         }
 
         return  articles;
