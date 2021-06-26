@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.oliva.newsreader.NewsApplication;
 
+import org.jetbrains.annotations.NotNull;
+
 import repository.NewsRepository;
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
@@ -18,6 +20,7 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     }
 
 
+    @NotNull
     @Override
     public <T extends ViewModel> T create(Class<T> modelClass) {
 

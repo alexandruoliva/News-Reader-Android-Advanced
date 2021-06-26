@@ -9,6 +9,9 @@ import com.bumptech.glide.Glide;
 
 public class ImageBinding {
 
+    private ImageBinding() {
+    }
+
     @BindingAdapter({"imageUrl"})
     public static void setImageUrl(ImageView imageView, @Nullable String url) {
         Glide

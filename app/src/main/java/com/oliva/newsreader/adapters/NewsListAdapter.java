@@ -10,6 +10,8 @@ import com.oliva.newsreader.databinding.ArticleItemBinding;
 import com.oliva.newsreader.listener.ArticleItemHandler;
 import com.oliva.newsreader.mappers.ArticleItemViewModel;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +26,9 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.Articl
         this.handler = handler;
     }
 
+    @NotNull
     @Override
-    public ArticleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ArticleViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         ArticleItemBinding binder = ArticleItemBinding.inflate(LayoutInflater.from(parent.getContext()),
                 parent, false);
 
@@ -35,7 +38,6 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.Articl
     @Override
     public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
         holder.binding.setItemViewModel(articleItemViewModelList.get(position));
-        // point all clicks to a single interface for all items
         holder.binding.setHandler(handler);
     }
 
@@ -50,7 +52,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.Articl
         notifyDataSetChanged();
     }
 
-    public class ArticleViewHolder extends RecyclerView.ViewHolder {
+    public static class ArticleViewHolder extends RecyclerView.ViewHolder {
         final ArticleItemBinding binding;
 
         public ArticleViewHolder(ArticleItemBinding binding) {

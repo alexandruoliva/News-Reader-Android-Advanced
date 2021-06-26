@@ -8,11 +8,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.oliva.newsreader.adapters.NewsListAdapter;
 import com.oliva.newsreader.listener.ArticleItemHandler;
 import com.oliva.newsreader.mappers.ArticleItemViewModel;
-import com.oliva.newsreader.mappers.NewsListViewModel;
 
 import java.util.List;
 
 public class RecyclerBindings {
+
+    private RecyclerBindings() {
+    }
+
+
     @BindingAdapter({"items", "handler"})
     public static void addFeedItems(RecyclerView recyclerView, List<ArticleItemViewModel> articles, ArticleItemHandler handler) {
         NewsListAdapter readerAdapter = (NewsListAdapter) recyclerView.getAdapter();

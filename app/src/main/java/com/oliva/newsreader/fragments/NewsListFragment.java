@@ -20,7 +20,6 @@ import com.oliva.newsreader.navigator.AlertNavigator;
 public class NewsListFragment extends Fragment {
 
     private NewsListViewModel newsListViewModel;
-    private AlertNavigator alertNavigator;
 
     public static NewsListFragment newInstance() {
         return new NewsListFragment();
@@ -31,12 +30,11 @@ public class NewsListFragment extends Fragment {
         super.onCreate(savedInstanceState);
         ViewModelFactory factory = new ViewModelFactory(requireActivity().getApplication());
 
-        alertNavigator = new AlertNavigator(getChildFragmentManager(), requireContext());
+        AlertNavigator alertNavigator = new AlertNavigator(getChildFragmentManager(), requireContext());
 
         newsListViewModel = ViewModelProviders.of(requireActivity(), factory).get(NewsListViewModel.class);
-        newsListViewModel.error.observe(this, throwable -> alertNavigator.showErrorFor(throwable));
-        newsListViewModel.openLink.observe(this, link -> openLink(link));
-//        newsListViewModel.fetchNewsList();
+        newsListViewModel.error.observe(this, alertNavigator::showErrorFor);
+        newsListViewModel.openLink.observe(this, this::openLink);
         getLifecycle().addObserver(newsListViewModel);
     }
 

@@ -1,13 +1,9 @@
 package com.oliva.newsreader;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
-
 import com.oliva.newsreader.fragments.NewsListFragment;
 
-import dependencyInjection.RepoModule;
 
 public class MainActivity extends AppCompatActivity {
 

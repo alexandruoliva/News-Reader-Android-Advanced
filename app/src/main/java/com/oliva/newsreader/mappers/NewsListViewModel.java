@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableField;
@@ -24,16 +23,14 @@ import repository.NewsRepository;
 
 public class NewsListViewModel extends AndroidViewModel implements LifecycleObserver, ArticleItemHandler {
 
-    public static final String TAG = NewsListViewModel.class.getName();
-    private final static String LINK = "https://newsapi.org/";
-    private final NewsRepository repo;
+
     public final ObservableBoolean isLoading;
     public final ObservableField<String> resultText;
     public final SingleLiveEvent<Throwable> error;
     public final SingleLiveEvent<String> openLink;
+    private final NewsRepository repo;
+    private static final String LINK = "https://newsapi.org/";
 
-    @Nullable
-    public Integer id;
     @NonNull
     public ObservableList<ArticleItemViewModel> items;
 
@@ -72,8 +69,6 @@ public class NewsListViewModel extends AndroidViewModel implements LifecycleObse
     }
 
     private void onNewsArticlesReceived(@NonNull List<ArticleItemViewModel> articles) {
-//        isLoading.set(false);
-//        resultText.set(getApplication().getString(R.string.results, articles.size()));
         this.items.addAll(articles);
     }
 
