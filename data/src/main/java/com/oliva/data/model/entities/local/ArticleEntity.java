@@ -9,27 +9,12 @@ public class ArticleEntity {
 
     @PrimaryKey(autoGenerate = true)
     @Nullable
-    public Integer id;
+    private Integer id;
+    private String title;
+    private String content;
+    private String imageUrl;
+    private String description;
 
-    public String title;
-
-    public String content;
-
-    public String imageUrl;
-
-    public String description;
-
-    public ArticleEntity(@Nullable Integer id, String title, String content, String imageUrl, String description) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.imageUrl = imageUrl;
-        this.description = description;
-    }
-
-    public ArticleEntity() {
-
-    }
 
     @Nullable
     public Integer getId() {

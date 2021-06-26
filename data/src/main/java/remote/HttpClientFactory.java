@@ -4,8 +4,6 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.concurrent.TimeUnit;
 
 import configuration.NewsApi;
@@ -17,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HttpClientFactory {
 
-    private final static String TAG = HttpClientFactory.class.getSimpleName();
+    private static final String TAG = HttpClientFactory.class.getSimpleName();
     private static final String BASE_URL = "https://newsapi.org/";
 
     public NewsApi getNewsApi() {
@@ -32,12 +30,7 @@ public class HttpClientFactory {
     }
 
     private OkHttpClient getHttpClient() {
-        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-            @Override
-            public void log(@NotNull String message) {
-                Log.d(TAG, message);
-            }
-        });
+        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(message -> Log.d(TAG, message));
         logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         return new OkHttpClient.Builder()

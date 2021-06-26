@@ -5,16 +5,11 @@ import com.oliva.data.model.entities.local.ArticleEntity;
 import com.oliva.data.model.entities.local.NewsLocalStore;
 
 import java.util.List;
-
 import configuration.NewsRemoteSource;
 import io.reactivex.Completable;
-import io.reactivex.Flowable;
-import io.reactivex.Scheduler;
 import io.reactivex.Single;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.schedulers.Schedulers;
-import mapper.ArticleToNewsEntityMapper;
-import mapper.NewsDtoToNewsMapper;
 
 public class NewsRepositoryImpl implements NewsRepository {
 
@@ -34,7 +29,6 @@ public class NewsRepositoryImpl implements NewsRepository {
                 .doOnSuccess(localSource::saveArticles)
                 .onErrorResumeNext(localSource.getArticlesList());
     }
-
 
 
     @NonNull

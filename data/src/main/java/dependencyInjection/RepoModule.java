@@ -37,7 +37,7 @@ public class RepoModule {
         return new NewsRemoteSource(httpClientFactory.getNewsApi());
     }
 
-    private NewsLocalStore provideNewLocalSource(){
+    private NewsLocalStore provideNewLocalSource() {
         NewsDatabase database = getInstance();
         return new NewsLocalStore(database.articlesDao());
     }

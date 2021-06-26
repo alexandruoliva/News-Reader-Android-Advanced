@@ -34,6 +34,7 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
     }
 
     @MainThread
+    @Override
     public void setValue(@Nullable T t) {
         mPending.set(true);
         super.setValue(t);

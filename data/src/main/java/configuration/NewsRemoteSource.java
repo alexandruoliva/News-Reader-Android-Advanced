@@ -1,7 +1,6 @@
 package configuration;
 
 import com.oliva.data.model.Article;
-import com.oliva.data.model.ArticleListDto;
 
 import java.util.List;
 

@@ -8,7 +8,6 @@ import androidx.room.Query;
 import java.util.List;
 
 import io.reactivex.Completable;
-import io.reactivex.Flowable;
 import io.reactivex.Single;
 
 @Dao
