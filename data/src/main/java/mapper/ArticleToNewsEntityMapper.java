@@ -7,6 +7,7 @@ import com.oliva.data.model.entities.local.ArticleEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import io.reactivex.functions.Function;
 
@@ -24,12 +25,12 @@ public class ArticleToNewsEntityMapper implements Function<List<Article>, List<A
         List<ArticleEntity> articleEntityList = new ArrayList<>();
 
         for (Article currentArticle : articles) {
-            ArticleEntity articleEntity = new ArticleEntity();
+            ArticleEntity articleEntity = new ArticleEntity(
+                    !currentArticle.title.equals("") ? currentArticle.title : DEFAULT_TITLE,
+                    !currentArticle.content.equals("") ? currentArticle.content : DEFAULT_CONTENT,
+                    !currentArticle.imageUrl.equals("") ? currentArticle.imageUrl : DEFAULT_IMAGE_URL,
+                    !currentArticle.description.equals("") ? currentArticle.description : DEFAULT_DESCRIPTION);
 
-            articleEntity.setContent(!currentArticle.content.equals("") ? currentArticle.content : DEFAULT_CONTENT);
-            articleEntity.setImageUrl(!currentArticle.imageUrl.equals("") ? currentArticle.imageUrl : DEFAULT_IMAGE_URL);
-            articleEntity.setTitle(!currentArticle.title.equals("") ? currentArticle.title : DEFAULT_TITLE);
-            articleEntity.setDescription(!currentArticle.description.equals("") ? currentArticle.description : DEFAULT_DESCRIPTION);
 
             articleEntityList.add(articleEntity);
         }

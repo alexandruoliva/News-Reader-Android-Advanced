@@ -30,10 +30,10 @@ public class NewsLocalStore {
     }
 
     public Completable saveArticle(ArticleEntity article) {
-        if (article.getId() == null) {
+        if (article.id == null) {
             return dao.insertArticle(article);
         } else {
-            return dao.updateArticle(article.getTitle(), article.getImageUrl(), article.getContent(), article.getDescription(), article.getId());
+            return dao.updateArticle(article.title, article.imageUrl, article.content, article.description, article.id);
         }
     }
 

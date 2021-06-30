@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsReader"
         android:requestLegacyExternalStorage="true">
-        <activity android:name=".MainActivity">
+        <activity android:name=".NewsReaderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

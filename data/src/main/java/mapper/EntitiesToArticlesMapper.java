@@ -26,10 +26,10 @@ public class EntitiesToArticlesMapper implements Function<List<ArticleEntity>, L
         for (ArticleEntity articleEntity : articleEntityList) {
             Article article = new Article();
 
-            article.setDescription(!articleEntity.getDescription().equals("") ? articleEntity.getDescription() : DEFAULT_DESCRIPTION);
-            article.setContent(!articleEntity.getContent().equals("") ? articleEntity.getContent() : DEFAULT_CONTENT);
-            article.setImageUrl(!articleEntity.getImageUrl().equals("") ? articleEntity.getImageUrl() : DEFAULT_IMAGE_URL);
-            article.setTitle(!articleEntity.getTitle().equals("") ? articleEntity.getTitle() : DEFAULT_TITLE);
+            article.setDescription(!articleEntity.description.equals("") ? articleEntity.description : DEFAULT_DESCRIPTION);
+            article.setContent(!articleEntity.content.equals("") ? articleEntity.content : DEFAULT_CONTENT);
+            article.setImageUrl(!articleEntity.imageUrl.equals("") ? articleEntity.imageUrl : DEFAULT_IMAGE_URL);
+            article.setTitle(!articleEntity.title.equals("") ? articleEntity.title : DEFAULT_TITLE);
 
         }
 

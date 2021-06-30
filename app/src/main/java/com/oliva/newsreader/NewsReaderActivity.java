@@ -1,11 +1,13 @@
 package com.oliva.newsreader;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import com.oliva.newsreader.fragments.NewsListFragment;
 
 
-public class MainActivity extends AppCompatActivity {
+public class NewsReaderActivity extends AppCompatActivity {
 
 
     @Override
