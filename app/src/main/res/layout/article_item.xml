@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.oliva.newsreader.listener.ArticleItemHandler" />
+
+        <variable
+            name="itemViewModel"
+            type="com.oliva.newsreader.mappers.ArticleItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="@{itemViewModel.title}"
+            android:textStyle="bold"
+            tools:text="Title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/photo_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:onClickListener="@{() -> handler.onItemSelected(itemViewModel)}"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            app:imageUrl="@{itemViewModel.imageUrl}" />
+
+        <TextView
+            android:id="@+id/content_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:lines="1"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="8dp"
+            android:text="@{itemViewModel.content}"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget ex aliquam, accumsan lacus at, congue nisi. Integer hendrerit dapibus ante et placerat. Suspendisse ut erat ultrices, interdum dolor eget, volutpat dui. Maecenas sollicitudin libero non tortor tempor lobortis. Donec eget elit id lacus ultricies posuere. Suspendisse tincidunt et leo sed malesuada. Vestibulum turpis urna, volutpat et nisl et, interdum pretium nisl. Sed auctor sapien sed tortor malesuada, a condimentum nibh dictum. Ut cursus at tortor eu rutrum. Fusce gravida leo nec imperdiet blandit. Donec blandit arcu mauris, nec gravida urna tincidunt at. Morbi et metus turpis. Nam ut ante nec nibh consectetur semper non ac libero. " />
+
+    </LinearLayout>
+</layout>
